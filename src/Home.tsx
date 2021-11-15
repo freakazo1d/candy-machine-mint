@@ -43,6 +43,8 @@ const Home = (props: HomeProps) => {
   const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
 
   const [itemsAvailable, setItemsAvailable] = useState(0);
+  const [itemsRedeemed, setItemsRedeemed] = useState(0);
+  const [itemsRemaining, setItemsRemaining] = useState(0);
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -164,7 +166,7 @@ const Home = (props: HomeProps) => {
   ]);
 
   return (
-   <main style={{
+    <main style={{
     display: "flex",
     flexDirection: "column",
     padding: 30,
@@ -218,6 +220,7 @@ const Home = (props: HomeProps) => {
 
       {wallet && <p>Remaining: {itemsRemaining}</p>}</div>
       </div>
+      
 
       <Snackbar
         open={alertState.open}
