@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-
 import * as anchor from "@project-serum/anchor";
 
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
@@ -42,8 +41,6 @@ const Home = (props: HomeProps) => {
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
   const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
 
-  const [itemsAvailable, setItemsAvailable] = useState(0);
-  const [itemsRedeemed, setItemsRedeemed] = useState(0);
   const [itemsRemaining, setItemsRemaining] = useState(0);
 
   const [alertState, setAlertState] = useState<AlertState>({
@@ -73,9 +70,7 @@ const Home = (props: HomeProps) => {
         props.connection
       );
 
-      setItemsAvailable(itemsAvailable);
       setItemsRemaining(itemsRemaining);
-      setItemsRedeemed(itemsRedeemed);
 
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
@@ -166,13 +161,13 @@ const Home = (props: HomeProps) => {
   ]);
 
   return (
-    <main style={{
+    <main 
+    style={{
     display: "flex",
     flexDirection: "column",
-    padding: 30,
-    height: "100vh",}}
+    padding: 1,
+    height: "1vh",}}
     >
-    <div style={{}}></div>
     <div 
     style={{
       flex: 1, 
@@ -182,6 +177,7 @@ const Home = (props: HomeProps) => {
       flexDirection: "column",
       }}
     > 
+  
     <MintContainer>
         {!wallet ? (
           <ConnectButton>Connect Wallet</ConnectButton>
